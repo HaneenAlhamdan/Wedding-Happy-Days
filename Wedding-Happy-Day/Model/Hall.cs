@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Wedding_Happy_Day.Model
 {
-    public class Flower_Shops
+    public class Hall
     {
     }
 }
