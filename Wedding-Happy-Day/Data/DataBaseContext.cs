@@ -1,13 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Wedding_Happy_Day.Model;
+using Wedding_Happy_Day.Model.Services;
 
 namespace Wedding_Happy_Day.Data
 {
-    public class DataBaseContext
+    public class DataBaseContext : IdentityDbContext<ApplicationUser>
     {
         public DataBaseContext(DbContextOptions<DataBaseContext> options) : base(options)
         {
@@ -45,6 +47,34 @@ namespace Wedding_Happy_Day.Data
                 }
 
                          );
+
+            modelBuilder.Entity<Design_Fashion>().HasData(
+              new Design_Fashion
+              {
+              }
+
+                       );
+
+            modelBuilder.Entity<Flower_Shop>().HasData(
+              new Flower_Shop
+              {
+              }
+
+                       );
+
+            modelBuilder.Entity<Food_buffet>().HasData(
+              new Food_buffet
+              {
+              }
+
+                       );
+
+            modelBuilder.Entity<Hall>().HasData(
+            new Hall
+            {
+            }
+
+                     );
         }
     }
 }
