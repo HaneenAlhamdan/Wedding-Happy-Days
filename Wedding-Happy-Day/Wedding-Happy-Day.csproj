@@ -41,7 +41,6 @@
 
   <ItemGroup>
     <Folder Include="Model\Interfaces\" />
-    <Folder Include="Model\Services\" />
   </ItemGroup>
 
 </Project>

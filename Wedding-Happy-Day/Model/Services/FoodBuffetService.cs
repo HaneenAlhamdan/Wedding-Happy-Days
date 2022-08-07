@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Wedding_Happy_Day.Data
+namespace Wedding_Happy_Day.Model.Services
 {
-    public class DataBase
+    public class FoodBuffetService
     {
     }
 }
