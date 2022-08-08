@@ -8,16 +8,12 @@ namespace Wedding_Happy_Day.Model
 {
     public class Register
     {
-        [Display(Name = "First Name")]
-        [Required(ErrorMessage = "First Name is required")]
-        public string FirstName { get; set; }
+        [Display(Name = "Full Name")]
+        [Required(ErrorMessage = "Full Name is required")]
+        public string FullName { get; set; }
 
-        [Display(Name = "Last name")]
-        [Required(ErrorMessage = "Last name is required")]
-        public string LastName { get; set; }
-
-        [Display(Name = "User Name")]
-        [Required(ErrorMessage = "User Name is required")]
+        [Display(Name = "User name")]
+        [Required(ErrorMessage = "User name is required")]
         public string UserName { get; set; }
 
         [Display(Name = "Email address")]

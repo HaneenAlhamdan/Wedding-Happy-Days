@@ -14,6 +14,14 @@ namespace Wedding_Happy_Day.Model.Services
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
 
+        public string DisplayableId => throw new NotImplementedException();
+
+        public string Name => throw new NotImplementedException();
+
+        public string IdentityProvider => throw new NotImplementedException();
+
+        public string Identifier => throw new NotImplementedException();
+
         public UserService(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> SignInMngr)
         {
             _userManager = userManager;

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -75,6 +76,40 @@ namespace Wedding_Happy_Day.Data
             }
 
                      );
+
+            // any unique string id
+            const string ADMIN_ID = "a18be9c0";
+            const string ADMIN_ROLE_ID = "ad376a8f";
+
+            // create an Admin role
+            modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole
+            {
+                Id = ADMIN_ROLE_ID,
+                Name = "Administrator",
+                NormalizedName = "Administrator"
+            });
+
+            // create a User
+            var hasher = new PasswordHasher<ApplicationUser>();
+            modelBuilder.Entity<ApplicationUser>().HasData(new ApplicationUser
+            {
+                Id = ADMIN_ID,
+                UserName = "Administrator",
+                NormalizedUserName = "Administrator",
+                Email = "Administrator@gmail.com",
+                NormalizedEmail = "Administrator@gmail.com",
+                EmailConfirmed = false,
+                PasswordHash = hasher.HashPassword(null, "Admin123#"),
+                SecurityStamp = string.Empty
+            });
+
+            // assign that user to the admin role
+            modelBuilder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+            {
+                RoleId = ADMIN_ROLE_ID,
+                UserId = ADMIN_ID
+            });
+
         }
     }
 }
