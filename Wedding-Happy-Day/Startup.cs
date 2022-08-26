@@ -63,7 +63,7 @@ namespace Wedding_Happy_Day
             services.AddTransient<IFlowerShop, FlowerShopService>();
             services.AddTransient<IFoodBuffet, FoodBuffetService>();
             services.AddTransient<IHall, HallService>();
-            services.AddTransient<IUser, UserService>();
+        //    services.AddTransient<IUser, UserService>();
             services.AddScoped<IOrder, OrdersService>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
