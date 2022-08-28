@@ -75,7 +75,7 @@ namespace Wedding_Happy_Day.Data
                     Price = 400.11,
                     Address = "Sweifyeh - Amman,Jordan",
                     Description = "A specialized department for preparing brides, hairstyles, makeup",
-                    Logo =
+                    Logo ="",
 
                 }
 
