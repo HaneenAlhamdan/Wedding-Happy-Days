@@ -26,6 +26,7 @@ namespace Wedding_Happy_Day.Model.Services
                 Email = Beauty.Email,
                 Phone = Beauty.Phone,
                 Price = Beauty.Price,
+                Address = Beauty.Address,
                 Description = Beauty.Description,
                 Logo = Beauty.Logo,
                
@@ -62,6 +63,7 @@ namespace Wedding_Happy_Day.Model.Services
                 Email = Beauty.Email,
                 Phone = Beauty.Phone,
                 Price = Beauty.Price,
+                Address = Beauty.Address,
                 Description = Beauty.Description,
                 Logo = Beauty.Logo,
 
@@ -77,6 +79,7 @@ namespace Wedding_Happy_Day.Model.Services
                 Email = Beauty.Email,
                 Phone = Beauty.Phone,
                 Price = Beauty.Price,
+                Address = Beauty.Address,
                 Description = Beauty.Description,
                 Logo = Beauty.Logo,
             };

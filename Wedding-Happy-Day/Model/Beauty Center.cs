@@ -15,9 +15,10 @@ namespace Wedding_Happy_Day.Model
         [Required(ErrorMessage = "Beauty_Center name is required")]
         public string Name { get; set; }
 
-        public Char Email { get; set; }
-        public int Phone { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
         public double Price { get; set; }
+        public string Address { get; set; }
 
         [Display(Name = "Description")]
         [Required(ErrorMessage = "Beauty_Center description is required")]
