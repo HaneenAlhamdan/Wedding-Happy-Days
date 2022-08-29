@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,9 +15,10 @@ namespace Wedding_Happy_Day.Model
         [Required(ErrorMessage = "Beauty_Center name is required")]
         public string Name { get; set; }
 
-        public Char Email { get; set; }
-        public int Phone { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
         public double Price { get; set; }
+        public string Address { get; set; }
 
         [Display(Name = "Description")]
         [Required(ErrorMessage = "Beauty_Center description is required")]
@@ -25,5 +27,9 @@ namespace Wedding_Happy_Day.Model
         [Display(Name = "Beauty_Center Logo")]
         [Required(ErrorMessage = "Beauty_Center logo is required")]
         public string Logo { get; set; }
+
+        public int WeddingId { get; set; }
+        [ForeignKey("CinemaId")]
+        public Wedding Wedding { get; set; }
     }
 }
