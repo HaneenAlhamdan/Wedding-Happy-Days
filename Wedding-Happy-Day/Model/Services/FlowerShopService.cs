@@ -1,36 +1,90 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Wedding_Happy_Day.Data;
 using Wedding_Happy_Day.Model.Interfaces;
 
 namespace Wedding_Happy_Day.Model.Services
 {
     public class FlowerShopService : IFlowerShop
     {
-        public Task<Flower_Shop> CreateFlowerShop(Flower_Shop FlowerShop)
+        private DataBaseContext _context;
+
+        public FlowerShopService(DataBaseContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+
+        }
+        public async Task<Flower_Shop> CreateFlowerShop(Flower_Shop FlowerShop)
+        {
+            Flower_Shop NewFlowerShop = new Flower_Shop
+            {
+                Id = FlowerShop.Id,
+                Name = FlowerShop.Name,
+                Email = FlowerShop.Email,
+                Phone = FlowerShop.Phone,
+                Price = FlowerShop.Price,
+                Address = FlowerShop.Address,
+                Description = FlowerShop.Description,
+                Logo = FlowerShop.Logo,
+
+            };
+            _context.Entry(FlowerShop).State = EntityState.Added;
+            await _context.SaveChangesAsync();
+            return NewFlowerShop;
         }
 
-        public Task DeleteFlowerShop(int Id)
+        public async Task DeleteFlowerShop(int Id)
         {
-            throw new NotImplementedException();
+            Flower_Shop FlowerShop = await _context.Flower_Shops.FindAsync(Id);
+            _context.Entry(FlowerShop).State = EntityState.Deleted;
+            await _context.SaveChangesAsync();
         }
 
-        public Task<Flower_Shop> GetFlowerShop(int Id)
+        public async Task<Flower_Shop> GetFlowerShop(int Id)
         {
-            throw new NotImplementedException();
+            var FlowerShopDetails = await _context.Flower_Shops
+                .Include(c => c.Wedding)
+
+                              .FirstOrDefaultAsync(n => n.Id == Id);
+
+            return FlowerShopDetails;
         }
 
-        public Task<List<Flower_Shop>> GetFlowerShops()
+        public async Task<List<Flower_Shop>> GetFlowerShops()
         {
-            throw new NotImplementedException();
+            return await _context.Car_rentals.Include(x => x.Wedding).Select(FlowerShop => new Flower_Shop
+            {
+                Id = FlowerShop.Id,
+                Name = FlowerShop.Name,
+                Email = FlowerShop.Email,
+                Phone = FlowerShop.Phone,
+                Price = FlowerShop.Price,
+                Address = FlowerShop.Address,
+                Description = FlowerShop.Description,
+                Logo = FlowerShop.Logo,
+
+            }).ToListAsync();
         }
 
-        public Task<Flower_Shop> UpdateFlowerShop(int Id, Flower_Shop FlowerShop)
+        public async Task<Flower_Shop> UpdateFlowerShop(int Id, Flower_Shop FlowerShop)
         {
-            throw new NotImplementedException();
+            Flower_Shop UpdateFlowerShop = new Flower_Shop
+            {
+                Id = FlowerShop.Id,
+                Name = FlowerShop.Name,
+                Email = FlowerShop.Email,
+                Phone = FlowerShop.Phone,
+                Price = FlowerShop.Price,
+                Address = FlowerShop.Address,
+                Description = FlowerShop.Description,
+                Logo = FlowerShop.Logo,
+            };
+            _context.Entry(FlowerShop).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return FlowerShop;
         }
     }
 }
