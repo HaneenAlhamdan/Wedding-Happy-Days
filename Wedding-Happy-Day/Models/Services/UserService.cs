@@ -1,26 +1,22 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Wedding_Happy_Day.Model;
+using Wedding_Happy_Day.Model.Services;
+using Wedding_Happy_Day.Models.Interfaces;
 
-namespace Wedding_Happy_Day.Model.Services
+namespace Wedding_Happy_Day.Models.Services
 {
     public class UserService : IUser
     {
+
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
 
-        public string DisplayableId => throw new NotImplementedException();
-
-        public string Name => throw new NotImplementedException();
-
-        public string IdentityProvider => throw new NotImplementedException();
-
-        public string Identifier => throw new NotImplementedException();
 
         public UserService(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> SignInMngr)
         {
@@ -89,3 +85,4 @@ namespace Wedding_Happy_Day.Model.Services
         }
     }
 }
+
